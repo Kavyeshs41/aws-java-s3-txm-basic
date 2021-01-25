@@ -1,0 +1,12 @@
+version: '3'
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack_test
+    ports:
+      - '8666:4566'
+    environment:
+      - SERVICES:s3
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+      - DOCKER_HOST=unix:///var/run/docker.sock
